@@ -1,0 +1,230 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Spatial.gd" type="Script" id=1]
+[ext_resource path="res://GLTF format/crate.glb" type="PackedScene" id=2]
+[ext_resource path="res://GLTF format/blockLarge.glb" type="PackedScene" id=3]
+[ext_resource path="res://Character.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.313726, 0.780392, 0.231373, 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 25, 25 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 13.206, 0.001, 14.8616 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.592709, 0.353891, 0.41609 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.341415, 0.237067, 0.27307 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.44241, 0.221361, 0.257732 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 14.9755, 1.15849, 1 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 1.03664, 3.2718, 14.9486 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="ground" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="ground"]
+transform = Transform( 0.999917, 0, 0.0128488, 0, 1, 0, -0.0128488, 0, 0.999917, -0.121523, -0.625882, -0.844798 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="ground/MeshInstance"]
+transform = Transform( 0.836694, -0.393314, -0.381114, 0.425236, 0.0280134, 0.904649, -0.345135, -0.918977, 0.19069, -0.718509, 7.55969, 1.68201 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201265, -1.03444, -1.95563 )
+shape = SubResource( 7 )
+
+[node name="create" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366661, 0.50822, -0.0177636 )
+
+[node name="CollisionShape" type="CollisionShape" parent="create"]
+transform = Transform( -0.584527, 0, -0.811374, 0, 1, 0, 0.811374, 0, -0.584527, -0.164206, 0.0276473, -4.32082 )
+shape = SubResource( 4 )
+
+[node name="create2" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+transform = Transform( 0.99983, 0.0184403, 0, -0.0184403, 0.99983, 0, 0, 0, 1, 0.295205, 0.991242, -0.000494003 )
+
+[node name="CollisionShape" type="CollisionShape" parent="create2"]
+shape = SubResource( 5 )
+
+[node name="create3" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217419, 1.40337, -0.184638 )
+
+[node name="CollisionShape" type="CollisionShape" parent="create3"]
+shape = SubResource( 6 )
+
+[node name="CameraHub" type="Spatial" parent="."]
+transform = Transform( 0.999917, 0, 0.0128488, 0, 1, 0, -0.0128488, 0, 0.999917, -0.537455, -1.10303, -1.11085 )
+
+[node name="Camera" type="Camera" parent="CameraHub"]
+transform = Transform( 0.999917, 0.0064244, -0.0111274, 0, 0.866025, 0.5, 0.0128488, -0.499959, 0.865954, -0.580621, 14.069, 18.3097 )
+fov = 59.0625
+
+[node name="Scene Root" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26377, -0.240916, -4.22854 )
+
+[node name="Scene Root4" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7 )
+
+[node name="Scene Root3" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 2 )
+
+[node name="Scene Root41" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0 )
+
+[node name="Scene Root42" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -2 )
+
+[node name="Scene Root43" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -4 )
+
+[node name="Scene Root44" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -6 )
+
+[node name="Scene Root2" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 4 )
+
+[node name="Scene Root37" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 6 )
+
+[node name="Scene Root38" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 8 )
+
+[node name="Scene Root39" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 10 )
+
+[node name="Scene Root40" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 12 )
+
+[node name="Scene Root5" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15 )
+
+[node name="Scene Root8" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 15 )
+
+[node name="Scene Root9" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 15 )
+
+[node name="Scene Root10" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 15 )
+
+[node name="Scene Root17" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 15 )
+
+[node name="Scene Root18" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 15 )
+
+[node name="Scene Root19" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, 15 )
+
+[node name="Scene Root20" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 15 )
+
+[node name="Scene Root21" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 15 )
+
+[node name="Scene Root22" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 15 )
+
+[node name="Scene Root23" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7 )
+
+[node name="Scene Root24" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7 )
+
+[node name="Scene Root25" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7 )
+
+[node name="Scene Root26" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7 )
+
+[node name="Scene Root27" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -7 )
+
+[node name="Scene Root28" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -7 )
+
+[node name="Scene Root29" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -7 )
+
+[node name="Scene Root11" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -1 )
+
+[node name="Scene Root30" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 1 )
+
+[node name="Scene Root31" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 3 )
+
+[node name="Scene Root32" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 5 )
+
+[node name="Scene Root33" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 7 )
+
+[node name="Scene Root34" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 9 )
+
+[node name="Scene Root35" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 10.5 )
+
+[node name="Scene Root36" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12.5 )
+
+[node name="Scene Root45" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 13.5 )
+
+[node name="Scene Root12" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -3 )
+
+[node name="Scene Root13" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -5 )
+
+[node name="Scene Root14" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Scene Root/Scene Root14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Scene Root/Scene Root14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 21.5 )
+shape = SubResource( 9 )
+
+[node name="Scene Root15" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7 )
+
+[node name="Scene Root16" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+
+[node name="Scene Root7" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 15 )
+
+[node name="Scene Root6" parent="Scene Root" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 14 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Scene Root"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.5, 5.5 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Scene Root"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -2, 1 )
+shape = SubResource( 8 )
+
+[node name="Spatial" parent="." instance=ExtResource( 4 )]
